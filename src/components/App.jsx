@@ -10,9 +10,12 @@ function App() {
   }
 
   function handleClick() {
-    setTaskLists(function (prevValue) {
-      return [...prevValue, todo];
-    });
+    if (todo !== '') {
+      setTaskLists(function (prevValue) {
+        return [...prevValue, todo];
+      });
+      setTodo('');
+    }
   }
 
   return (
