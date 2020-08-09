@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import TaskList from './TaskList';
 
 function App() {
   const [todo, setTodo] = useState('');
@@ -32,7 +33,7 @@ function App() {
       <div>
         <ul>
           {taskLists.map((taskList) => (
-            <li>{taskList}</li>
+            <TaskList text={taskList} />
           ))}
         </ul>
       </div>
