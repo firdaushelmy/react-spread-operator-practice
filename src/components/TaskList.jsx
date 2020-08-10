@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-function TaskList({ text }) {
-  const [isDone, setIsDone] = useState(false);
-
-  function clickHandler() {
-    setIsDone((isDone) => {
-      return !isDone;
-    });
-  }
+function TaskList({ text, changeDelete, id }) {
   return (
-    <div onClick={clickHandler}>
-      <li style={isDone ? { textDecoration: 'line-through' } : null}>{text}</li>
+    <div onClick={() => changeDelete(id)}>
+      <li>{text}</li>
     </div>
   );
 }

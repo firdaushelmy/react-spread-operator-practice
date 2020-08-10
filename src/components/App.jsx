@@ -19,6 +19,14 @@ function App() {
     }
   }
 
+  function deleteItem(id) {
+    setTaskLists((prevValue) => {
+      return prevValue.filter((taskList, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div className='container'>
       <div className='heading'>
@@ -32,8 +40,13 @@ function App() {
       </div>
       <div>
         <ul>
-          {taskLists.map((taskList) => (
-            <TaskList text={taskList} />
+          {taskLists.map((taskList, index) => (
+            <TaskList
+              key={index}
+              id={index}
+              text={taskList}
+              changeDelete={deleteItem}
+            />
           ))}
         </ul>
       </div>
