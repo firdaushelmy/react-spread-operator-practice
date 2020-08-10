@@ -5,7 +5,9 @@ function TaskList({ text }) {
   const [isDone, setIsDone] = useState(false);
 
   function clickHandler() {
-    setIsDone(isDone ? false : true);
+    setIsDone((isDone) => {
+      return !isDone;
+    });
   }
   return (
     <div onClick={clickHandler}>
